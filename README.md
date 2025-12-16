@@ -9,12 +9,6 @@ A full-stack web application for ordering Italian food, designed to demonstrate 
 
 ---
 
-## 📸 Demo Screenshots
-
-<p align="center">
-  <img src="public/pic/1.jpg" alt="Menu Example" width="45%">
-  </p>
-
 ## ✨ Key Features
 
 * **🛒 Dynamic AJAX Shopping Cart:** Users can add/remove items and update totals instantly **without page reloads**.
