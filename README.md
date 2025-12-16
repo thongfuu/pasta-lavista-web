@@ -19,7 +19,7 @@ A full-stack web application for ordering Italian food, designed to demonstrate 
 
 ---
 
-## 🏗 System Architecture
+## System Architecture
 
 The application is structured into two distinct services running in parallel:
 
