@@ -1,0 +1,43 @@
+::placeholder {
+    text-align: left;
+    padding-left: 15px;
+}
+.form-control{
+    background-color: rgb(238, 238, 238);
+    border: None
+}
+#navicon .nav-link:hover {
+    color: rgb(198, 15, 45);
+}
+.carousel-inner {
+    border-radius: 25px;
+}
+.card-img-top{
+    border-radius: 30px;
+    padding: 20px;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+.card{
+    border-radius: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border: none;
+}
+.card-body{
+    padding: 25px;
+    margin-top: -15px;
+}
+.card:hover {
+    box-shadow: rgba(100, 100, 111, 0.25) 0px 7px 29px 0px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+.form-control:hover{
+    background-color: rgb(228, 228, 228);
+}
+#back{
+    text-decoration: none;
+}
+#cart{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}

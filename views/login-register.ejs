@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Or Register</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+
+    <style>
+        .center-text{
+            text-align: center;
+        }
+        #loginbox.bg-clicked{
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            background-color: white;
+        }
+        #regisbox.bg-clicked{
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            background-color: white;
+        }
+        #loginbox, #regisbox {
+            transition: box-shadow 0.3s ease;
+        }
+        #loginbox.bg-clicked, #regisbox.bg-clicked {
+            transition: background-color 0.3s ease;
+        }
+        ::placeholder {
+            text-align: left;
+            padding-left: 15px;
+        }
+        .form-control{
+            background-color: rgb(238, 238, 238);
+            border: None
+        }
+        .form-control:hover{
+            background-color: rgb(228, 228, 228);
+        }
+    </style>
+    <script>
+        (function () {
+        'use strict'
+    
+        var forms = document.querySelectorAll('.needs-validation')
+    
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+                }
+    
+                form.classList.add('was-validated')
+            }, false)
+            })
+        })()
+    </script>
+    <script>
+        var lastClickedBox = null;
+
+        function toggleBackground(element) {
+            if (lastClickedBox === element) {
+                return;
+            }
+
+            if (lastClickedBox && lastClickedBox !== element) {
+                lastClickedBox.classList.remove("bg-clicked");
+            }
+
+            if (element.classList.contains("bg-clicked")) {
+                element.classList.remove("bg-clicked");
+                lastClickedBox = null;
+            } else {
+                element.classList.add("bg-clicked");
+                lastClickedBox = element;
+            }
+        }
+
+
+        document.addEventListener('click', function(event) {
+            if (lastClickedBox && !lastClickedBox.contains(event.target)) {
+                lastClickedBox.classList.remove("bg-clicked");
+                lastClickedBox = null;
+            }
+        });
+    </script>    
+</head>
+<body class="bg-light">
+    <div class="container p-5">
+        <div class="row row-cols-sm-1 row-cols-md-2 border rounded-5">
+            <div class="col rounded-5 p-5" id="loginbox" onclick="toggleBackground(this)">
+                <form class="was-validated" action="" method="POST">
+                    <div class="container pt-4">
+                        <label class="form-label d-block mb-4 center-text">
+                            <h1 class="fs-4" style="color: rgb(198, 15, 45); display: inline;"><i class="bi bi-emoji-sunglasses-fill"></i> Log In </h1>
+                            <h1 class="fs-4" style="display: inline;">with your email address.</h1>
+                        </label>
+                        <div class="mb-3">
+                            <input type="email" placeholder="Your Email" class="form-control rounded-5 p-2" id="_email" name="user_email" rnodeequired/>
+                            <div class="invalid-feedback ps-3" id="error">Please provide email address.</div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" placeholder="Your Password" class="form-control rounded-5 p-2" id="_pass" name="user_pass" required/>
+                            <div class="invalid-feedback ps-3" id="error">Please provide a password.</div>
+                        </div>
+                        <% if (locals.login_errors) { 
+                            login_errors.forEach(function(error_msg){ %>
+                            <div class="alert alert-danger rounded-pill" role="alert"><%= error_msg %></div>
+                          <% });
+                        } %>
+                        <div class="mb-5 d-grid">
+                            <button type="submit" class="btn btn-danger rounded-pill p-2">Log In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col rounded-5 p-5" id="regisbox" onclick="toggleBackground(this)">
+                <form class="was-validated" action="/register" method="POST">
+                    <div class="container pt-4">
+                        <label class="form-label d-block mb-4 center-text" for="signup">
+                            <h1 class="fs-4" style="color: rgb(198, 15, 45); display: inline;"><i class="bi bi-stars"></i> Sign up </h1>
+                            <h1 class="fs-4" style="display: inline;">with your email address.</h1>
+                        </label>                        
+                        <div class="mb-3">
+                            <input type="text" placeholder="Name" class="form-control rounded-5 p-2" id="_rname" name="user_name" value="<%= (locals.old_data) ? old_data.user_name : ''; %>" required/>
+                            <div class="invalid-feedback ps-3" id="error">Please provide a name.</div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" placeholder="Your Email" class="form-control rounded-5 p-2" id="_remail" name="user_email" value="<%= (locals.old_data) ? old_data.user_email : ''; %>" required/>
+                            <div class="invalid-feedback ps-3" id="error">Please provide a valid email address.</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="tel" placeholder="Phone Number" class="form-control rounded-5 p-2" id="phone" name="phone" required/>
+                                <div class="invalid-feedback ps-3" id="error">Please provide a valid phone number.</div>
+                            </div>
+                            <div class="col">
+                                <input type="date" class="form-control rounded-5 p-2" id="date" name="date" required/>
+                                <div class="invalid-feedback ps-3" id="error">Please provide a valid date.</div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" placeholder="Your Password" class="form-control rounded-5 p-2" id="_rpass" name="user_pass" required/>
+                            <div class="invalid-feedback ps-3" id="error">Please provide a valid password.</div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" placeholder="Retype-Password" class="form-control rounded-5 p-2" id="retypepw" name="retypepw" required/>
+                            <div class="invalid-feedback ps-3" id="error">Password doesn't match.</div>
+                        </div>
+                        <% if (locals.register_error) { 
+                            register_error.forEach(function(error_msg){ %>
+                            <div class="alert alert-danger rounded-pill" role="alert"><%= error_msg %></div>
+                            <% });
+                            } %>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-danger rounded-pill p-2">Sign Up</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
