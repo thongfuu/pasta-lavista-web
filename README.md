@@ -1,4 +1,4 @@
-# 🍝 Pasta Lavista - E-commerce Web Application
+# Pasta Lavista - E-commerce Web Application
 
 ![Project Status](https://img.shields.io/badge/Status-Completed-success)
 ![Node.js](https://img.shields.io/badge/Node.js-v18+-green)
@@ -9,13 +9,13 @@ A full-stack web application for ordering Italian food, designed to demonstrate 
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-* **🛒 Dynamic AJAX Shopping Cart:** Users can add/remove items and update totals instantly **without page reloads**.
-* **🔐 Dual-Service Architecture:** Separated `Auth Service` and `Shop Service` to simulate a scalable microservices structure.
-* **👤 State Management:** Handles persistent carts for registered users (Database) and temporary carts for guests (Session).
-* **💳 Simulated Payment Gateway:** Complete checkout flow with QR Code generation.
-* **🛡 Security:** Implemented `bcrypt` for password hashing and `express-validator` for input sanitization.
+* **Dynamic AJAX Shopping Cart:** Users can add/remove items and update totals instantly **without page reloads**.
+* **Dual-Service Architecture:** Separated `Auth Service` and `Shop Service` to simulate a scalable microservices structure.
+* **State Management:** Handles persistent carts for registered users (Database) and temporary carts for guests (Session).
+* **Simulated Payment Gateway:** Complete checkout flow with QR Code generation.
+* **Security:** Implemented `bcrypt` for password hashing and `express-validator` for input sanitization.
 
 ---
 
@@ -30,7 +30,7 @@ The application is structured into two distinct services running in parallel:
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 * **Frontend:** HTML5, CSS3, Bootstrap (Responsive), EJS Templating, JavaScript (AJAX/Fetch)
 * **Backend:** Node.js, Express.js
@@ -39,7 +39,7 @@ The application is structured into two distinct services running in parallel:
 
 ---
 
-## ⚙️ Installation & Run
+## Installation & Run
 
 1.  **Clone the repository**
     ```bash
@@ -68,7 +68,7 @@ The application is structured into two distinct services running in parallel:
         ```
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 pasta-lavista-web/
