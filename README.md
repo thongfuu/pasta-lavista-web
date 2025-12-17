@@ -77,6 +77,6 @@ pasta-lavista-web/
 ├── database.js         # Database Connection Config
 ├── database/           # SQL Dump files
 ├── docs/               # Project Report & Documentation
-├── public/             # Static Assets (Images/CSS)
+├── pic/                # Static Assets (Images/CSS)
 └── views/              # EJS Frontend Templates
 ```
